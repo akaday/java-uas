@@ -1,0 +1,69 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package FirstJavaProgram;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ *
+ * @author Acer
+ */
+public class NewClass {
+
+    public static void main (String[] args) throws IOException 
+    {
+        String content = null;
+        File file = new File("E://soal1.txt"); //for ex foo.txt
+        FileReader reader = null;
+        try {
+            reader = new FileReader(file);
+            char[] chars = new char[(int) file.length()];
+            reader.read(chars);
+            content = new String(chars);
+            reader.close();
+        } catch (IOException e) {
+//            e.printStackTrace();
+        } finally {
+            if(reader !=null){reader.close();}
+        }
+        
+        System.out.println(content);
+      
+      String reverse = "";  
+      int length = content.length();
+ 
+      for ( int i = length - 1 ; i >= 0 ; i-- )
+         reverse = reverse + content.charAt(i);
+ 
+      System.out.println("Reverse of entered string is: "+reverse);
+        
+        FileOutputStream fos = null;
+        File myfile;
+
+        try {
+            myfile    = new File("E://soal1.txt");
+            fos = new FileOutputStream(myfile);
+
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+
+            byte[] byteData = reverse.getBytes();
+
+            fos.write(byteData);
+            fos.flush();
+        }
+        catch (FileNotFoundException ex) {
+            //
+        }
+    }
+
+}
