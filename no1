@@ -19,6 +19,7 @@ public class NewClass {
 
     public static void main (String[] args) throws IOException 
     {
+        //Membaca File
         String content = null;
         File file = new File("E://soal1.txt"); //for ex foo.txt
         FileReader reader = null;
@@ -35,7 +36,8 @@ public class NewClass {
         }
         
         System.out.println(content);
-      
+
+        //membalik kata        
       String reverse = "";  
       int length = content.length();
  
@@ -43,7 +45,9 @@ public class NewClass {
          reverse = reverse + content.charAt(i);
  
       System.out.println("Reverse of entered string is: "+reverse);
-        
+     //selesai membalik
+     
+     //menulis file
         FileOutputStream fos = null;
         File myfile;
 
